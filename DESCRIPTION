@@ -4,10 +4,13 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Shubham", "Dutta", , "shubhamdutta26@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8484-0717"))
-Description: What the package does (one paragraph).
+Description: Provides a custom geom for visualizing plasmid maps in ggplot2.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.2.3
+Imports: 
+    ggplot2,
+    grid
 URL: https://github.com/shubhamdutta26/ggplasmid
 BugReports: https://github.com/shubhamdutta26/ggplasmid/issues
