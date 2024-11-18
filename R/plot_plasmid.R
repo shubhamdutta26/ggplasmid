@@ -43,7 +43,6 @@ plot_plasmid <- function(data,
                          center.label.size = 4,
                          show.labels = TRUE,
                          show.ticks = TRUE) {
-
   data <- read_plasmid_data(input = data)
 
   if (nrow(data) == 0) {

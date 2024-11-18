@@ -1,5 +1,6 @@
 #' @title Constants for Plasmid Visualization
 #' @description Define basic geometric constants used in plasmid visualization
+#' @noRd
 #' @keywords internal
 BASE_RADIUS <- 0.18
 THICKNESS <- 0.017
@@ -28,7 +29,7 @@ TEXT_POSITIONS <- list(
 #' @param pos Character string indicating position type ("outer" or "inner")
 #'
 #' @return Character string indicating text alignment position ("b_center", "t_center", "right", or "left")
-#'
+#' @noRd
 #' @details
 #' Determines the optimal text positioning based on the angle around the plasmid circle.
 #' Used for both feature labels and numerical markers.
@@ -75,7 +76,7 @@ text_pos <- function(theta, pos = "outer") {
 #' Calculates all coordinates needed to draw a single plasmid feature, including
 #' the main glyph shape, annotation lines, and text placement positions.
 #' Handles directional arrows if direction is specified.
-#'
+#' @noRd
 #' @keywords internal
 calc_glyphs <- function(row) {
   feat_radius <- BASE_RADIUS + THICKNESS * 2.3 * row$level
@@ -111,12 +112,12 @@ calc_glyphs <- function(row) {
 
   # Handle arrows if needed
   if (has_direction) {
-    if (row$direction == 1) {  # Clockwise
+    if (row$direction == 1) { # Clockwise
       # Arrow points toward r_end
       arrow_theta <- shift - r_end
       x1 <- c(x1[1:(length(x1) - 2)], feat_radius * cos(arrow_theta))
       y1 <- c(y1[1:(length(y1) - 2)], feat_radius * sin(arrow_theta))
-    } else {  # Anti-clockwise
+    } else { # Anti-clockwise
       # Arrow points toward r_start
       arrow_theta <- shift - r_start
       x1 <- c(x1[1:(length(x1) - 2)], feat_radius * cos(arrow_theta))
@@ -169,7 +170,7 @@ calc_glyphs <- function(row) {
 #' Calculates positions for numerical markers around the plasmid circle.
 #' Markers are placed at regular intervals, with spacing adjusted based on
 #' plasmid size.
-#'
+#' @noRd
 #' @keywords internal
 calc_num_markers <- function(plas_len) {
   chunk_size <- max(round((plas_len %/% 5) / 500) * 500, 500)
@@ -218,6 +219,7 @@ calc_num_markers <- function(plas_len) {
 #' Assigns features to different levels (concentric rings) to prevent overlap.
 #' Features are sorted by size and assigned to the innermost available level
 #' where they don't overlap with existing features.
+#' @noRd
 #' @keywords internal
 calc_level <- function(annotations) {
   if (nrow(annotations) == 0) {

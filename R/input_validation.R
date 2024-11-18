@@ -16,7 +16,7 @@
 #' * Validates that 'end' values are numeric and greater than corresponding start values
 #' * Ensures all entries have the same length value
 #' * Verifies that length is greater than or equal to maximum end position
-#'
+#' @noRd
 #' @keywords internal
 validate_plasmid_data <- function(data) {
   required_cols <- c("start", "end", "length")
@@ -80,7 +80,7 @@ validate_plasmid_data <- function(data) {
 #' * Required package (readxl) is missing for Excel files
 #' * File reading fails
 #' * Data validation fails
-#'
+#' @noRd
 #' @keywords internal
 read_plasmid_data <- function(input) {
   if (is.character(input)) {

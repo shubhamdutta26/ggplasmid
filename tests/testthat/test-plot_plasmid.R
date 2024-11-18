@@ -26,16 +26,18 @@ test_that("plot_plasmid generates valid plots", {
 
   # Test with disabled features
   p <- plot_plasmid(test_data,
-                    show.center.label = FALSE,
-                    show.labels = FALSE,
-                    show.ticks = FALSE)
+    show.center.label = FALSE,
+    show.labels = FALSE,
+    show.ticks = FALSE
+  )
   expect_s3_class(p, "ggplot")
 
   # Test with custom center label
   p <- plot_plasmid(test_data,
-                    center.label.text = "Test Plasmid",
-                    center.label.color = "red",
-                    center.label.size = 6)
+    center.label.text = "Test Plasmid",
+    center.label.color = "red",
+    center.label.size = 6
+  )
   expect_s3_class(p, "ggplot")
 
   # Test error handling
@@ -74,17 +76,18 @@ test_that("visual elements are correctly positioned", {
 
   # Generate plot with all visual elements
   p <- plot_plasmid(test_data,
-                    fill = "name",
-                    feature.outline.color = "black",
-                    show.center.label = TRUE,
-                    show.labels = TRUE,
-                    show.ticks = TRUE)
+    fill = "name",
+    feature.outline.color = "black",
+    show.center.label = TRUE,
+    show.labels = TRUE,
+    show.ticks = TRUE
+  )
 
   # Save plot for manual inspection
   # ggsave("test_plasmid.pdf", p, width = 8, height = 8)
 
   # Basic checks that can be automated
-  expect_true(length(p$layers) >= 4)  # Should have multiple layers
+  expect_true(length(p$layers) >= 4) # Should have multiple layers
   expect_equal(p$coordinates$limits$x, c(-0.35, 0.35))
   expect_equal(p$coordinates$limits$y, c(-0.35, 0.35))
 })
@@ -112,7 +115,7 @@ test_that("functions handle large datasets efficiently", {
 
   # Test plot_plasmid performance
   time_start <- Sys.time()
-  p <- plot_plasmid(large_data[1:100, ])  # Test with first 100 features
+  p <- plot_plasmid(large_data[1:100, ]) # Test with first 100 features
   time_end <- Sys.time()
   expect_true(as.numeric(difftime(time_end, time_start, units = "secs")) < 5)
 })

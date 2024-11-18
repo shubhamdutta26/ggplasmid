@@ -74,7 +74,7 @@ test_that("validate_plasmid_data validates length consistency", {
 
   # Length less than maximum end position
   invalid_data <- valid_data
-  invalid_data$length <- 700  # Less than max end position of 800
+  invalid_data$length <- 700 # Less than max end position of 800
   expect_error(
     validate_plasmid_data(invalid_data),
     "Length must be greater than or equal to the maximum end position"
