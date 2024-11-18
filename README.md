@@ -4,6 +4,10 @@
 # ggplasmid
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/shubhamdutta26/ggplasmid/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/shubhamdutta26/ggplasmid/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/shubhamdutta26/ggplasmid/graph/badge.svg)](https://app.codecov.io/gh/shubhamdutta26/ggplasmid)
 <!-- badges: end -->
 
 ggplasmid is an R package that provides tools for visualizing plasmid
