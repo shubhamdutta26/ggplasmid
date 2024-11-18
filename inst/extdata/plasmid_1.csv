@@ -1,11 +1,11 @@
-Feature,Type,qstart,qend,qlen,score,sframe,fragment,Description,db,pi_permatch,fill_color,line_color
-ori,origin of replication,1,589,5200,98.5,1,FALSE,Origin of replication,RepoDB,95.2,#FF9999,#000000
-ampR,CDS,600,1460,5200,99,1,FALSE,Ampicillin resistance gene,SwissProt,98.7,#FF9999,#000000
-GFP,CDS,1500,2220,5200,97.8,1,FALSE,Green fluorescent protein,SwissProt,96.5,#FF9999,#000000
-pLac,promoter,2250,2450,5200,95.5,1,FALSE,Lac promoter,RegulonDB,94.3,#FF9999,#000000
-MCS,misc feature,2500,2700,5200,90,1,FALSE,Multiple cloning site,GenBank,88.9,#FF9999,#000000
-tetR,CDS,2800,3850,5200,98.2,-1,FALSE,Tetracycline resistance gene,SwissProt,97.8,#FF9999,#000000
-T7_term,terminator,3900,4100,5200,94.7,1,FALSE,T7 terminator sequence,RegulonDB,93.5,#FF9999,#000000
-rep_origin2,origin of replication,4200,4800,5200,96.3,1,FALSE,Secondary origin of replication,RepoDB,94.8,#FF9999,#000000
-RBS,misc feature,4850,4950,5200,91.5,1,FALSE,Ribosome binding site,GenBank,90.2,#FF9999,#000000
-term_sequence,terminator,5000,5200,5200,93.8,1,FALSE,Terminal sequence,RegulonDB,92.6,#FF9999,#000000
+feature,type,start,end,length,direction
+ori,origin of replication,1,589,5200,0
+ampR,CDS,600,1460,5200,1
+GFP,CDS,1500,2220,5200,1
+pLac,promoter,2250,2450,5200,1
+MCS,misc feature,2500,2700,5200,0
+tetR,CDS,2800,3850,5200,-1
+T7_term,terminator,3900,4100,5200,0
+rep_origin2,origin of replication,4200,4800,5200,1
+RBS,misc feature,4850,4950,5200,0
+term_sequence,terminator,5000,5200,5200,0

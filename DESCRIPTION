@@ -8,9 +8,12 @@ Description: Provides a custom geom for visualizing plasmid maps in ggplot2.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
-Imports: 
+RoxygenNote: 7.3.2
+Imports:
     ggplot2,
-    grid
+    rlang
 URL: https://github.com/shubhamdutta26/ggplasmid
 BugReports: https://github.com/shubhamdutta26/ggplasmid/issues
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
