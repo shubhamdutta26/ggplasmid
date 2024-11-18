@@ -50,7 +50,7 @@ Required packages: - ggplot2 - readxl (for Excel file support)
 library(ggplasmid)
 library(ggplot2)
 
-file <- system.file("extdata", "plasmid_1.csv", package = "ggplasmid")
+file <- system.file("extdata", "plasmid_eg.csv", package = "ggplasmid")
 plasmid_data <- read.csv(file)
 plot_plasmid(plasmid_data, fill = "feature")
 ```

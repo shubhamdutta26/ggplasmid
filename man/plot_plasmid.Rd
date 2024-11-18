@@ -57,7 +57,7 @@ overlap. Optional elements include numerical markers, feature labels, and
 a central base pair count.
 }
 \examples{
-file <- system.file("extdata", "plasmid_1.csv", package = "ggplasmid")
+file <- system.file("extdata", "plasmid_eg.csv", package = "ggplasmid")
 plasmid_data <- read.csv(file)
 plot_plasmid(plasmid_data, fill = "feature")
 
