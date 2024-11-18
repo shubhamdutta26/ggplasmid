@@ -1,0 +1,15 @@
+feature,start,end,length,direction
+NeoR/KanR,2626,3421,4731,1
+mPA-GFP,612,1329,4731,1
+ori,4028,4617,4731,0
+f1 ori,1673,2102,4731,0
+SV40 promoter,2234,2592,4731,1
+CMV enhancer,60,364,4731,1
+CMV promoter,364,568,4731,1
+SV40 poly(A) signal,1518,1640,4731,1
+AmpR promoter,2128,2233,4731,1
+MCS,1329,1395,4731,0
+HSV TK poly(A) signal,3652,3700,4731,1
+ble,3441,3594,4731,1
+large T antigen,1411,1496,4731,1
+bGH poly(A) signal,3790,3807,4731,-1

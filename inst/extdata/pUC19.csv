@@ -1,0 +1,12 @@
+feature,type,start,end,length,direction
+AmpR promoter,promoter,779,884,2686,1
+AmpR,CDS,884,1745,2686,1
+ori,rep_origin,1915,2504,2686,1
+MCS,misc_feature,232,284,2686,-1
+lac promoter,promoter,141,172,2686,1
+CAP binding site,protein_bind,105,127,2686,1
+lac operator,protein_bind,179,196,2686,1
+lacZα,CDS,285,443,2686,0
+bom,misc_feature,448,548,2686,-1
+lacI,CDS,0,93,2686,1
+rop,CDS,649,685,2686,-1

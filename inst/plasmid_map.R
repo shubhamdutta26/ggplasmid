@@ -9,10 +9,9 @@ plot_plasmid(data = df,
              center.label.size = 10)
 
 # Create visualization
-plot_plasmid("inst/extdata/plasmid_1.csv", fill = "feature", show.labels = F) +
-  #ggsci::scale_fill_npg()+
-  scale_fill_brewer(palette = "Set3") +
-  labs(title = "Y")
+plot_plasmid("inst/extdata/pSC101.csv",
+             fill = "feature",
+             show.labels = T)
 p
 # Save the plot if desired
 ggsave("plasmid_visualization.pdf", p)

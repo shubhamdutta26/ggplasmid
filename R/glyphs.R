@@ -54,7 +54,7 @@ text_pos <- function(theta, pos = "outer") {
 #' @param row A data frame row containing feature information with the following required columns:
 #'   \describe{
 #'     \item{level}{Integer indicating the feature's level (ring position)}
-#'     \item{direction}{Numeric: 1 for forward, -1 for reverse, 0 or NULL for no direction}
+#'     \item{direction}{Numeric: 1 for clockwise, -1 for anti-clockwise, 0 or NULL for no direction}
 #'     \item{rstart}{Numeric start position in radians}
 #'     \item{rend}{Numeric end position in radians}
 #'     \item{line_color}{Character string specifying line color (optional)}
@@ -83,13 +83,21 @@ calc_glyphs <- function(row) {
   has_direction <- !is.null(row$direction) && abs(row$direction) == 1
 
   # Calculate start and end positions
-  r_start <- if (has_direction && row$direction == 1) row$rend else row$rstart
-  r_end <- if (has_direction && row$direction == 1) row$rstart else row$rend
+  r_start <- row$rstart
+  r_end <- row$rend
 
   # Calculate segment points
   seg_len <- abs(r_end - r_start)
   n_segments <- max(as.integer(25 * seg_len) + 3, 10)
-  theta <- seq(shift - r_start, shift - r_end, length.out = n_segments)
+
+  # For clockwise (direction = 1), we go from start to end
+  # For anti-clockwise (direction = -1), we go from end to start
+  if (!has_direction || row$direction == 1) {
+    theta <- seq(shift - r_start, shift - r_end, length.out = n_segments)
+  } else {
+    # For anti-clockwise, reverse the sequence
+    theta <- rev(seq(shift - r_start, shift - r_end, length.out = n_segments))
+  }
 
   # Calculate radii points
   radius_outer <- feat_radius + THICKNESS
@@ -103,17 +111,25 @@ calc_glyphs <- function(row) {
 
   # Handle arrows if needed
   if (has_direction) {
-    x1 <- c(x1[1:(length(x1) - 2)], feat_radius * cos(shift - r_end))
-    y1 <- c(y1[1:(length(y1) - 2)], feat_radius * sin(shift - r_end))
+    if (row$direction == 1) {  # Clockwise
+      # Arrow points toward r_end
+      arrow_theta <- shift - r_end
+      x1 <- c(x1[1:(length(x1) - 2)], feat_radius * cos(arrow_theta))
+      y1 <- c(y1[1:(length(y1) - 2)], feat_radius * sin(arrow_theta))
+    } else {  # Anti-clockwise
+      # Arrow points toward r_start
+      arrow_theta <- shift - r_start
+      x1 <- c(x1[1:(length(x1) - 2)], feat_radius * cos(arrow_theta))
+      y1 <- c(y1[1:(length(y1) - 2)], feat_radius * sin(arrow_theta))
+    }
     x2 <- x2[3:length(x2)]
     y2 <- y2[3:length(y2)]
   }
 
   # Calculate text and line positions
-  theta <- pi / 2 - mean(c(r_start, r_end))
-  cos_theta <- cos(theta)
-  sin_theta <- sin(theta)
-
+  theta_mean <- pi / 2 - mean(c(r_start, r_end))
+  cos_theta <- cos(theta_mean)
+  sin_theta <- sin(theta_mean)
   text_radius <- feat_radius * 1.6
   line_radius <- feat_radius * 1.5
 
@@ -130,8 +146,8 @@ calc_glyphs <- function(row) {
     anno_line_color = anno_line_color,
     lineX = c(cos_theta * (feat_radius + THICKNESS), cos_theta * line_radius),
     lineY = c(sin_theta * (feat_radius + THICKNESS), sin_theta * line_radius),
-    theta = theta,
-    anno_pos = text_pos(theta)
+    theta = theta_mean,
+    anno_pos = text_pos(theta_mean)
   )
 }
 
