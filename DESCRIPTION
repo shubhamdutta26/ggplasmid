@@ -1,10 +1,10 @@
 Package: ggplasmid
-Title: What the Package Does (One Line, Title Case)
+Title: Generate Plasmid Maps Using ggplot2
 Version: 0.0.0.9000
 Authors@R: 
     person("Shubham", "Dutta", , "shubhamdutta26@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8484-0717"))
-Description: Provides a custom geom for visualizing plasmid maps in ggplot2.
+Description: Provides a function for visualizing plasmid maps in ggplot2.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
