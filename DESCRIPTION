@@ -11,6 +11,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Imports:
     ggplot2,
+    readxl,
     rlang
 URL: https://github.com/shubhamdutta26/ggplasmid
 BugReports: https://github.com/shubhamdutta26/ggplasmid/issues

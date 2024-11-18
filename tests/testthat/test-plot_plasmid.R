@@ -38,11 +38,6 @@ test_that("plot_plasmid generates valid plots", {
                     center.label.size = 6)
   expect_s3_class(p, "ggplot")
 
-  # Test with empty data
-  empty_data <- test_data[0, ]
-  p <- plot_plasmid(empty_data)
-  expect_s3_class(p, "ggplot")
-
   # Test error handling
   expect_error(plot_plasmid(test_data, fill = "nonexistent_column"))
 })

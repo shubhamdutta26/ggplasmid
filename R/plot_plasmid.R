@@ -43,6 +43,9 @@ plot_plasmid <- function(data,
                          center.label.size = 4,
                          show.labels = TRUE,
                          show.ticks = TRUE) {
+
+  data <- read_plasmid_data(input = data)
+
   if (nrow(data) == 0) {
     return(ggplot2::ggplot())
   }
@@ -121,9 +124,9 @@ plot_plasmid <- function(data,
       data = data.frame(
         x = glyph$x,
         y = glyph$y,
-        fill_value = if (fill == "default_fill") "feature" else data[[fill]][i]
+        fill = if (fill == "default_fill") "feature" else data[[fill]][i]
       ),
-      ggplot2::aes(x, y, fill = fill_value),
+      ggplot2::aes(x, y, fill = fill),
       color = feature.outline.color,
       linewidth = feature.outline.linewidth
     )
